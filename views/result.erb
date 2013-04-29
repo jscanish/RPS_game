@@ -1,0 +1,16 @@
+<!html>
+  <body>
+     <% if @computer_throw == @player_throw %> 
+       <p>"You tied with the computer. Try again!"</p>
+     <% elsif @computer_throw == @defeat[@player_throw] %> 
+       <p>"You win! <%= @player_throw %> beats <%= @computer_throw%>"</p>
+     <% else %> 
+       <p>"Ouch! <%= @computer_throw %> beats <%= @player_throw%>!"
+     <% end %>
+  
+    <form action="/home" method="post">
+      <input type="text"  name="throw">
+      <input type="submit" value="Throw">
+    </form>
+  </body>
+</html>
