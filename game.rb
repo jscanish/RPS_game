@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'shotgun'
+require 'sass'
 
 
 
@@ -8,9 +9,13 @@ before do
     @throws = [:rock, :scissors, :paper]
 end
 
+get('/styles.css'){ scss :styles }
+
+
 get '/' do 
 	erb :home
 end
+
 
 post '/home' do
     @player_throw = params[:throw].to_sym 
@@ -22,6 +27,7 @@ post '/home' do
     @computer_throw = @throws.sample
     erb :result
 end
+
 
 get '/results' do 
     erb :results

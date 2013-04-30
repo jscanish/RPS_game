@@ -1,12 +1,13 @@
 <!html>
-  <body>
+   <body>
      <% if @computer_throw == @player_throw %> 
-       <p>"You tied with the computer. Try again!"</p>
+       <p font-weight="bold">"You tied with the computer. Try again!"</p>
      <% elsif @computer_throw == @defeat[@player_throw] %> 
-       <p>"You win! <%= @player_throw %> beats <%= @computer_throw%>"</p>
+       <p font-weight="bold">"You win! <%= @player_throw.capitalize %> beats <%= @computer_throw%>"</p>
      <% else %> 
-       <p>"Ouch! <%= @computer_throw %> beats <%= @player_throw%>!"
+       <p font-weight="bold">"Ouch! <%= @computer_throw.capitalize %> beats <%= @player_throw%>!"
      <% end %>
+    
   
     <form action="/home" method="post">
       <input type="text"  name="throw">
